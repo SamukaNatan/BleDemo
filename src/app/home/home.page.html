@@ -1,20 +1,65 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      BleApp
     </ion-title>
+
+
+    <ion-buttons slot="end">
+      <ion-item>
+        <ion-label>
+          <ion-icon size="large" name="bluetooth"></ion-icon>
+        </ion-label>
+        <ion-toogle (ionChange)="toggleBle($event)" [(ngModel)]="ble"></ion-toogle>
+      </ion-item>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
+<!--  
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
+-->
 
+<ion-content>
+<ion-grid>
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <ion-button *ngIf="scanText==''" (click)="startScanning()"
+      style="width: 100%;">
+        <ion-icon size="large" name="refresh-circle"></ion-icon>
+        Scan
+    </ion-button>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col style="text-aling: center;">
+      {{scanText}}
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+  <ion-list>
+    <ion-item *ngFor="let d of devices; let i = index;">
+      <b style="color: #fff;">{{d.localname}}</b>
+      <ion-button (click)="connect(d,i)" *ngIf="!d.connection" slot="end">
+        connect
+      </ion-button>
+      <ion-button (click)="disconnect(d,i)" *ngIf="d.connection" slot="end">
+        disconnect
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+<!--  
   <div id="container">
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
-</ion-content>
+-->
+
