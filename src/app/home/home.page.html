@@ -10,7 +10,7 @@
         <ion-label>
           <ion-icon size="large" name="bluetooth"></ion-icon>
         </ion-label>
-        <ion-toogle (ionChange)="toggleBle($event)" [(ngModel)]="ble"></ion-toogle>
+        <ion-toggle (ionChange)="toggleBle($event)" [(ngModel)]="ble"></ion-toggle>
       </ion-item>
     </ion-buttons>
   </ion-toolbar>
@@ -37,7 +37,7 @@
     <ion-col></ion-col>
   </ion-row>
   <ion-row>
-    <ion-col style="text-aling: center;">
+    <ion-col style="text-align: center;">
       {{scanText}}
     </ion-col>
   </ion-row>

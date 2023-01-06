@@ -24,7 +24,7 @@ export class HomePage {
     })
   }
 
-  toogleBle(event) {
+  toggleBle(event) {
     if(this.ble){
       this.enableBluetooth();
     }else {
