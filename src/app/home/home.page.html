@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      BleApp
+      BleAppAtual
     </ion-title>
 
 
@@ -37,15 +37,13 @@
     <ion-col></ion-col>
   </ion-row>
   <ion-row>
-    <ion-col style="text-align: center;">
-      {{scanText}}
-    </ion-col>
+    <ion-col style="text-align: center;">{{scanText}}</ion-col>
   </ion-row>
 </ion-grid>
 
   <ion-list>
     <ion-item *ngFor="let d of devices; let i = index;">
-      <p style="color: rgb(12, 228, 102);">{{d.localname}}</p>
+      <b style="color: rgb(241, 241, 241);">{{d.localName}}</b>
       <ion-button (click)="connect(d,i)" *ngIf="!d.connection" slot="end">
         connect
       </ion-button>
