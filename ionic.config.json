@@ -1,7 +1,8 @@
 {
   "name": "blueDemo",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }

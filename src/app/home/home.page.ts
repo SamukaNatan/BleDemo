@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { BleClient, BluetoothLe } from '@capacitor-community/bluetooth-le';
 
 @Component({
@@ -6,11 +6,12 @@ import { BleClient, BluetoothLe } from '@capacitor-community/bluetooth-le';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+
+export class HomePage implements OnInit {
   devices:any[]=[];
   ble:boolean=false;
   scanText:string="";
-  constructor(private change:ChangeDetectorRef) {}  
+  constructor(private change:ChangeDetectorRef) {}
 
   ngOnInit(){
     BleClient.initialize().then(()=>{
